@@ -1,0 +1,52 @@
+<script>
+    var str = 'hello world' // 字符串字面量
+    var s = new String('hello') // 构造函数
+
+    var num = 123
+    var f = new Number(123)
+
+    var flag = true
+    var f = new Boolean(true)
+
+    var u = undefined
+    var nu = null
+
+    var arr = [1, 2, 3, 4]
+    // fill 将指定值填充到数组
+    var array = new Array(4).fill(1)
+
+    arr.forEach(function(item, index, arr){
+        //console.log(index, item)
+    })
+
+    for(var i = 0; i < arr.length; i++){
+        //console.log(i, arr[i])
+    }
+
+    var newArr = arr.map(function(item, index, arr){
+        //console.log(index, item)
+        return item + 2
+    })
+
+    var arr = [
+        [1, 2, 3, 4, 5],
+        [1, 2, 3, 4, 5],
+        [1, 2, 3, 4, 5],
+        [1, 2, 3, 4, 5],
+        [1, 2, 3, 4, 5],
+    ]
+    arr.forEach(function(item, index, arr){
+        item.forEach(function(content, i, array){
+            //console.log(content)
+        })
+    })
+
+    for(var i = 0; i < arr.length; i++){
+        for(var j = 0; j < arr[i].length; j++){
+            console.log(arr[i][j])
+        }
+    }
+
+    //时间复杂度， 空间复杂度
+    
+</script>
