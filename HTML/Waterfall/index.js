@@ -13,7 +13,7 @@ function imgLocation(parent, content) { // 当前有多少图片要摆放
     var BoxHeightArr = []
     for(var i = 0; i < ccontent.length; i++){
         if(i < num){
-            BoxHeightArr[i] = ccontent[i].offsetWidth
+            BoxHeightArr[i] = ccontent[i].offsetHeight
         }else{ // 要操作的图
             var minHeight = Math.min.apply(null, BoxHeightArr)
             //minHeight 是第几张
@@ -27,6 +27,7 @@ function imgLocation(parent, content) { // 当前有多少图片要摆放
             BoxHeightArr[minIndex] = BoxHeightArr[minIndex] + ccontent[i].offsetHeight
         }
     }
+    console.log(num);
 }
 
 function getChildElement(parent, content) {
