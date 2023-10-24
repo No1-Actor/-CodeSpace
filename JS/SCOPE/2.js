@@ -1,13 +1,11 @@
-var a = 1
 function foo() {
-    var a = 2
-    
-    function bar() {
-        console.log(a);
+    if (1) {
+      var x = 1; 
+      let y = '块级作用域'; 
     }
-    
-    bar()
-}
-
-foo()
-
+  
+    console.log(x); 
+  }
+  
+  foo(); 
+  
