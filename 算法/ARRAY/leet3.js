@@ -1,12 +1,14 @@
-nums = [1,1,1,2,2,3]
-var removeDuplicates = function(nums) {
-    let i = 1
-    for (let j = 2; j < nums.length; j++) {
-        if(nums[j] !== nums[i]){
-            i++
-            nums[i] = nums[j]
-        }
+const s = 'abcabcbb'
+
+var lengthOfLongestSubstring = function(s) {
+   let i = 0, res = 0
+   for (let j = 0; j < s.length; j++) {
+    let index = s.slice(i, j).indexOf(s[j])
+    if(index === -1){
+        res = Math.max(res, j - i + 1)
+    }else{
+        i = i + index + 1
     }
-    return i + 1;
-};
-console.log(removeDuplicates(nums))
+   }
+   return res
+}
