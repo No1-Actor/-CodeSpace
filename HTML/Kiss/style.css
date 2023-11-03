@@ -1,63 +1,132 @@
-body{
+body {
     background-color: #78e08f;
     margin: 0;
-}
-
-.container{
+  }
+  
+  .cotainer {
     width: 232px;
     height: 200px;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
-}
-
-.ball{
+    transform: translate(-50%, -50%);
+    /*border:1px solid #000;*/
+  }
+  
+  /* 头 */
+  .ball {
     width: 100px;
     height: 100px;
-    border: 8px solid #000;
     border-radius: 50%;
+    border: 8px solid #000;
     background-color: #fff;
-    position: relative;
-}
-
-.face{
+    position: absolute;
+  }
+  
+  .ball-l {
+    left: 0px;
+    z-index: 10;
+  }
+  
+  .ball-r {
+    right: 0px;
+  }
+  
+  /* 脸 */
+  .face-l {
     width: 70px;
     height: 30px;
     position: absolute;
     right: 0;
     top: 30px;
-}
-
-.eye{
+  }
+  
+  .face-r {
+    width: 70px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: 30px;
+  }
+  
+  /* 眼睛 */
+  .eye-l {
     width: 15px;
     height: 14px;
     border-bottom: 5px solid #000;
     border-radius: 50%;
     position: absolute;
-}
-
-.eye-l{
+  }
+  
+  .eye-r {
+    width: 15px;
+    height: 14px;
+    border-top: 5px solid #000;
+    border-radius: 50%;
+    position: absolute;
+  }
+  
+  .eye-ll {
     left: 10px;
-}
-
-.eye-r{
+  }
+  
+  .eye-lr {
     right: 5px;
-}
-
-.mouth{
+  }
+  
+  .eye-rl {
+    left: 10px;
+  }
+  
+  .eye-rr {
+    right: 5px;
+  }
+  
+  /* 嘴 */
+  .mouth {
     width: 30px;
     height: 14px;
-    border-bottom: 5px solid #000;
-    border-radius: 50%;
     position: absolute;
     left: 0;
     right: 0;
     margin: 0 auto;
     bottom: -5px;
-}
-
-.face::before{
+    border-bottom: 5px solid #000;
+    border-radius: 50%;
+  }
+  
+  /* kiss形嘴 */
+  .kiss {
+    width: 30px;
+    height: 15px;
+    /*border: 1px solid #000;*/
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: -5px;
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+  
+  .halfmouth {
+    width: 14px;
+    height: 15px;
+    border-bottom: 5px solid #000;
+    border-radius: 50%;
+    position: absolute;
+  }
+  
+  .halfmouth-s {
+    left: 1px;
+  }
+  
+  .halfmouth-x {
+    right: 1px;
+  }
+  
+  /* 腮红部分 */
+  .face-l::before {
     content: '';
     width: 18px;
     height: 8px;
@@ -66,9 +135,9 @@ body{
     position: absolute;
     right: -8px;
     top: 20px;
-}
-
-.face::after{
+  }
+  
+  .face-l::after {
     content: '';
     width: 18px;
     height: 8px;
@@ -77,54 +146,192 @@ body{
     position: absolute;
     left: -5px;
     top: 20px;
-}
-
-#l-ball{
+  }
+  
+  .face-r::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #badc58;
+    position: absolute;
+    right: -8px;
+    top: 20px;
+  }
+  
+  .face-r::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #badc58;
+    position: absolute;
+    left: -5px;
+    top: 20px;
+  }
+  
+/* 左脸靠近 */
+.ball-l {
     animation: close 4s ease infinite;
-}
+  }
+  
+  @keyframes close {
+    0% {
+      transform: translate(0);
+    }
+  
+    20% {
+      transform: translate(20px);
+    }
+  
+    35% {
+      transform: translate(20px);
+    }
+  
+    55% {
+      transform: translate(0);
+    }
+  
+    100% {
+      transform: translate(0);
+    }
+  }
+  
+  /* 左脸蹭蹭 */
+  .face-l {
+    animation: ceng 4s ease infinite;
+  }
+  
+  @keyframes ceng {
+    0% {
+      transform: translate(0) rotate(0);
+    }
+  
+    10% {
+      transform: translate(0) rotate(0);
+    }
+  
+    20% {
+      transform: translate(5px) rotate(-2deg);
+    }
+  
+    28% {
+      transform: translate(0) rotate(0);
+    }
+  
+    35% {
+      transform: translate(5px) rotate(-2deg);
+    }
+  
+    50% {
+      transform: translate(0) rotate(0);
+    }
+  
+    100% {
+      transform: translate(0) rotate(0);
+    }
+  }
+  
 
-@keyframes close{
-    0%{
-        transform: translate(0);
+/* 右脸靠近+被蹭微微抬头+低头kiss */
+.ball-r {
+    animation: close-r 4s ease infinite;
+  }
+  
+  @keyframes close-r {
+    0% {
+      transform: translate(0) rotate(0);
     }
-    20%{
-        transform: translate(20px);
+  
+    50% {
+      transform: translate(0) rotate(10deg);
     }
-    35%{
-        transform: translate(20px);
+  
+    60% {
+      transform: translate(-30px) rotate(-10deg);
     }
-    55%{
-        transform: translate(0);
+  
+    80% {
+      transform: translate(-30px);
     }
-    100%{
-        transform: translate(0);
+  
+    100% {
+      transform: translate(0);
     }
-}
-
-.face-l{
-    animation: face 4s ease infinite;
-}
-
-@keyframes face {
-    0%{
-        transform: translate(0) rotate(0);
+  }
+  
+  /* 嘴旋转加渐变隐藏 */
+  .mouth-r {
+    animation: rotate 4s ease infinite;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0);
+      opacity: 1;
     }
-    10%{
-        transform: translate(0) rotate(0);
+  
+    50% {
+      transform: rotate(0);
+      opacity: 1;
     }
-    20%{
-        transform: translate(5px) rotate(-2deg);
+  
+  
+    60% {
+      transform: rotate(90deg);
+      opacity: 0;
     }
-    28%{
-        transform: translate(0) rotate(0);
+  
+    80% {
+      transform: rotate(90deg);
+      opacity: 0;
     }
-    35%{
-        transform: translate(5px) rotate(-2deg);
+  
+    81% {
+      transform: rotate(0);
+      opacity: 1;
     }
-    50%{
-        transform: translate(0) rotate(0);
+  
+    100% {
+      transform: rotate(0);
+      opacity: 1;
     }
-    100%{
-        transform: translate(0) rotate(0);
+  }
+  
+  /* 嘴kiss渐变出现 */
+  .kiss {
+    animation: kiss 4s ease infinite;
+  }
+  
+  @keyframes kiss {
+    0% {
+      opacity: 0;
+      transform: rotate(90deg);
     }
-}
+  
+    50% {
+      opacity: 0;
+      transform: rotate(90deg);
+    }
+  
+    60% {
+      opacity: 1;
+      transform: rotate(90deg);
+    }
+  
+    80% {
+      opacity: 1;
+      transform: rotate(90deg);
+    }
+  
+    81% {
+      opacity: 0;
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      opacity: 0;
+      transform: rotate(0);
+    }
+  }
+  

@@ -13,3 +13,8 @@ for (var j = 0; j < arr.length; j++) {
     arr[j]() // 调用函数
 }
 
+
+function foo() {
+}
+
+foo(1)
