@@ -80,3 +80,46 @@
     line-height: 42px;
 }
 
+.body-line{
+    width: 245px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.bord-left{
+    width: 100px;
+    border: 2px solid #F03030;
+}
+.bord-right{
+    width: 245px;
+    border: 1px solid #C6C6C6;
+}
+
+.time{
+    margin-top: 8px;
+    font-size: 8px;
+    color: #9EA0AD;
+    font-family: SourceHanSansCN;
+    font-weight: bold;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.body-play{
+    width: 280px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.body-model{
+    width: 230px;
+    margin-top: 5px;
+    margin: 0 auto;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
