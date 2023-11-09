@@ -24,4 +24,4 @@ transformers huggingface的核心库
     - PIL库 图片的读写等...
         Image   读
         ImageDraw   写
-    - Object
+    - Object 
