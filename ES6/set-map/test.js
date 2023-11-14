@@ -1,3 +1,4 @@
+// 后端代码
 global.gc() // 强制执行垃圾回收
 console.log(process.memoryUsage());     // 计算node内存占用情况
 

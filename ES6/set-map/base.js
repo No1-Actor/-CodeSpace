@@ -10,7 +10,7 @@
 // }
 
 // for (const item of obj) {    // obj is not iterable
-//     console.log(item);       // 对象不具备迭代器属性
+//     console.log(item);       // 对象不具备迭代器属性（不能使用for of）
 // }
 
 // ---------------------------------------------
