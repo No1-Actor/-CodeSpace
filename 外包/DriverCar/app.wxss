@@ -1,3 +1,12 @@
-.hero{
-  color: #ffffff;
+/* 模块化划分 */
+@import "styles/reset.wxss";
+@import "styles/hero.wxss";
+@import "styles/action.wxss";
+@import "styles/button.wxss";
+
+page {
+  background: #f8f8f8;
+}
+.section {
+  height: 100vh;
 }
