@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>LOCAL TAPAS</h2>
+        <p></p>
+        <ul class="plates">
+            <li>Loading Tapas...</li>
+        </ul>
+        <form class="add-item">
+            <input type="text" name="item" required placeholder="Item Name">
+            <input type="submit" value="+ Add Item">
+        </form>
+    </div>
+    <script>
+        // window.localStorage.setItem('name', 'batman');
+        const addItem = document.querySelector('.add-item');
+        const itemsList = document.querySelector('.plates');
+        const items = JSON.parse(localStorage.getItem('item')) || []  // 获取本地存储的数据，如果没有就为空数组
+        function addItems(e) {
+            e.preventDefault(); // 阻止浏览器表单默认行为（提交）
+            // 组织todos结构
+            const item = {
+                text: this.querySelector('[name=item]').value,
+                done: false
+            }
+            // console.log(item)
+            items.push(item);
+            // DOM 更新的业务逻辑，重新渲染,拆分到另一个函数
+            populateList(items, itemsList);
+            this.reset(); // 清空表单 用户体验的考验
+            // 序列化一下存储到本地
+            localStorage.setItem('items', JSON.stringify(items))  // JSON.stringify() 方法将 JavaScript 对象转换为字符串
+
+        }
+        
+        function populateList(piates=[], platesList) {  // piates=[] 设置默认值
+            platesList.innerHTML = piates.map((plate, i) => {  // map() 方法将原数组返回一个新数组，cailback return 
+                return `
+                    <li>
+                        <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''}> 
+                        <label for='item${i}'>${plate.text}</label>
+                    </li>
+                ` // for属性与label表单元素绑定
+            }).join(''); // join() 方法将数组中的所有元素放入一个字符串
+        }
+
+        function toggleDone(e) {
+            console.log(e.target.nodeName); // 打印事件在哪个元素上触发
+            // return
+            if(e.target.nodeName === 'INPUT') {
+                // input.checkbox处理
+                console.log(e.target);
+                const el = e.target;
+                const index = el.dataset.index; // data-index
+                // console.log(index);
+                items[index].done = !items[index].done; // done属性取反
+                localStorage.setItem('items', JSON.stringify(items)); 
+                populateList(items, itemsList); 
+            }
+        }
+
+        addItem.addEventListener('submit', addItems);
+        // 父元素上绑定事件，事件委托 性能好,
+        itemsList.addEventListener('click', toggleDone); 
+        // 事件委托，监听父元素，通过事件对象的target属性获取子元素
+        window.onload = function () {
+            populateList(items, itemsList)
+        }
+    </script>
+</body>
+</html>

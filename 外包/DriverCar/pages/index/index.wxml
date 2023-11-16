@@ -3,6 +3,7 @@
   <text>{{slides[0].description}}111</text>
   <text>{{user.favor}}222</text>
 </view> -->
+<!-- 幻灯片 -->
 
 
 <swiper 
@@ -25,3 +26,33 @@
     </swiper-item>
   </block>
 </swiper>
+<view class="cards">
+  <view 
+    class="card" 
+    wx:for="{{ entities }}"
+    wx:key="id"
+  >
+  <!-- navigator 相当 a标签 
+    ./ 当前目录 相对路径
+    / 项目根目录 绝对路径
+  -->
+  <navigator url="/pages/vehicles/show?id={{item.id}}">
+    <image src="{{item.image}}" 
+    model="aspectFill"/>
+    <view class="content">
+      <view class="header">
+        {{item.header}}
+          <view class="sub-header">
+            {{item.sub_header}}
+          </view>
+      </view>
+      <view class="description">
+        {{item.description}}
+      </view>
+      <view class="meta">
+        {{item.meta.price}}
+      </view>
+    </view>
+  </navigator>
+  </view>
+</view>

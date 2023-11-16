@@ -1,0 +1,37 @@
+.cover {
+  position: relative;
+}
+
+.covre image {
+    height: 38.2vh;
+}
+
+.cover .content {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.36);
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /*使得文字在两边 */
+  color: rgba(255, 255, 255, 0.85);
+  padding: 16rpx 32rpx;
+  align-items: flex-end;  /*使得文字在底部 */
+  text-shadow: 0 10rpx 38rpx rgba(0, 0, 0, 0.5);
+}
+
+.cover .header {
+  font-size: 36rpx;
+  font-weight: bold;
+  letter-spacing: 4rpx; 
+}
+
+.cover .sub-header {
+  font-size: 28rpx;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 4rpx;
+}
+
+.cover .meta{
+  font-size: 26rpx;
+}
