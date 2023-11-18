@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.Login_head {
+    display: flex;
+}
+
+.Login_head_left {
+    width: 35%;
+    float: left;
+    background-color: #f5f5f5;
+}
+
+.Login_head_center {
+    float: left;
+    background-color: #fff;
+    color: red;
+    font-size: 12px;
+}
+
+.Login_head_title {
+    text-align: center;
+    font-size: 12px;   
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+    padding: 0 0 0 5px ;
+}
+
+.Login_body_top {
+    margin-top: 100px;
+    margin-left: 60px;
+}
+
+.Login_body_top input{
+    background-color: rgb(244, 242, 242);
+    width: 80%;
+    height: 30px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px; 
+}
+
+#email {
+    margin: 10px 0 0 0; 
+}
+
+.Login_body_center {
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+.Login_body_center input{
+    background-color: rgb(244, 242, 242);
+    width: 80%;
+    height: 30px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px;    
+}
+
+
+#password {
+    margin: 10px 0 0 0; 
+}
+
+.Login_body_bottom {
+    margin: 20px 0 0 0;
+    text-align: center;
+}
+
+#Login_body_bottom {
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    margin-left: 60px;
+    width: 65%;
+    height: 30px;
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 16px;
+    color: white;
+    background-color: rgb(246, 188, 188);
+    font: 900 15px '';
+}
+
+.Login_body_bottom2 {
+    margin-top: 30px;
+    margin-left: 150px;
+    text-decoration: none;
+    color: rgb(116, 116, 184);
+    font-family: 'Roboto', sans-serif;
+}
