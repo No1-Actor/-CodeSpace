@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hidden {
+            display: none!important;
+        }
+        .award_users {
+            z-index: 999;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .center {
+            width: 18px;
+            margin: 20px auto;
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div id="loading" class="hidden">抽奖中...</div>
+        <button id="btn">抽奖</button>
+    </div>
+    <div class="award_users hidden">
+        <table>
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>手机号</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="center close">X</div>
+    </div>
+    <script>
+        let isPicking = false
+        const btn = document.querySelector('#btn')
+        const loading = document.querySelector('#loading')
+        const awardUsers = document.querySelector('.award_users')
+        const close = document.querySelector('.close')
+        function doAward (){
+            if(isPicking) return
+            // this.setAttribute('disabled', 'disabled')  // 禁用按钮
+            isPicking = true // 标记正在抽奖
+            this.classList.add('hidden') // 隐藏按钮
+            loading.classList.remove('hidden') // 显示loading
+
+            setTimeout(() => {
+                isPicking = false // 标记抽奖结束
+                this.classList.remove('hidden') // 显示按钮
+                loading.classList.add('hidden') // 隐藏loading
+                awardUsers.classList.remove('hidden') // 显示中奖名单s
+            }, 1000)
+        }
+        btn.addEventListener('click', doAward)
+        close.addEventListener('click', function(){
+            awardUsers.classList.add('hidden')
+        })
+    </script>
+</body>
+</html>
