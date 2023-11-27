@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">你好</div>
+    <script type="x-template" id="template">
+        <div>
+            <h2>{{message}}</h2>
+        </div>
+    </script>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        // document.getElementById('template')
+        Vue.createApp({
+            template: '#template', // 通过id引入模板
+            data:function(){ // data必须是一个函数
+                return {
+                    message: 'hello world'
+                }
+            },
+        }).mount('#app')
+    </script>
+</body>
+</html>

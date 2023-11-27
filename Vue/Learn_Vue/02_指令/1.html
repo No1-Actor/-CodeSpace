@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div id="app"></div>
+    
+        <template id="my-app">
+            <h1>{{message}}</h1>
+            <h2>{{count * 2}}</h2>
+            <h2>{{message.split('').reverse().join('')}}</h2>
+            <h2>{{getReverse()}}</h2>
+
+            <h2>{{emotion ? '难过' : '开心'}}</h2>
+            <button @click="change">切换心情</button>
+        </template>
+    
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+        <script>
+            const App = {
+                template: '#my-app',
+                data() {
+                    return {
+                        message: '达咩',
+                        count: '100',
+                        emotion: false
+                    }
+                },
+                methods: {
+                    getReverse(){
+                        return this.message.split('').reverse().join('')
+                    },
+                    change() {
+                        this.emotion = !this.emotion 
+                    }
+                }
+            }
+    
+            Vue.createApp(App).mount('#app')
+        </script>
+    
+    </body>
+</html>
