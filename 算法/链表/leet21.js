@@ -1,4 +1,5 @@
 // 合并两个有序链表
+
 var mergeTwoLists = function mergeTwoLists(l1, l2) {
     let prehead = new ListNode() 
     let prev = prehead  
