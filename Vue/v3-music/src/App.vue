@@ -9,17 +9,17 @@
       <div class="h-14">
         <Header />
       </div>
+      <div>
+        <ElButton>按钮</ElButton>
+      </div>
     </div>
   </div>
-
 </template>
 
 <script setup>
 // import Menu from './components/layout/menu/Menu.vue'
-import Menu from '@/components/layout/menu/Menu.vue'
-import Header from '@/components/layout/header/Header.vue'
+import Menu from "@/components/layout/menu/Menu.vue";
+import Header from "@/components/layout/header/Header.vue";
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
