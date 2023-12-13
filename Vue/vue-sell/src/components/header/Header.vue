@@ -29,7 +29,7 @@
         <span class="buttetin-text">{{ seller.bulletin }}</span>
         <i class="iconfont icon-youjiantou"></i>
       </div>
-      <HeaderDatail v-show="detailShow" @hide="handle"/>
+      <HeaderDatail v-show="detailShow" @hide="handle" :seller="seller"/>
     </div>
   </div>
 </template>
