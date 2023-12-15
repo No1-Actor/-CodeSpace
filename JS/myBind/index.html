@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <button id="btn">按钮</button>
+    <script>
+        var name = '全局'
+        let opener = {
+            name: '李总',
+            addEvents: function(id) {
+                document.querySelector(id).addEventListener('click', 
+                this.appendData.bind(this))   // 这里this指向的是opener
+            },
+            appendData: function() {
+                document.querySelector('#app').innerHTML = this.name  // 这里this指向的是opener
+            }
+        }
+        // const btn = document.querySelector('#btn')
+        // btn.addEventListener('click', function() {
+        //     document.querySelector('#app').innerHTML = '李总'
+        // })  
+    </script>
+</body>
+</html>
