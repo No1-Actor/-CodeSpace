@@ -1,29 +1,28 @@
 <template>
-  <Component
-    :is="icon"
-    :theme="theme"
-    :size="size"
-    :spin="spin"
-    :fill="fill"
-    :strokeLinecap="strokeLinecap"
-    :strokeLinejoin="strokeLinejoin"
-    :strokeWidth="strokeWidth"
-  />
+	<Component
+		:is="icon"
+		:theme="theme"
+		:size="size"
+		:spin="spin"
+		:fill="fill"
+		:strokeLinecap="strokeLinecap"
+		:strokeLinejoin="strokeLinejoin"
+		:strokeWidth="strokeWidth" />
 </template>
-<script setup>
-//   定义父组件传过来的参数
-// vue组件的一种声明方式，本来是有各种图标，Component + is="图标名" 
-// 入侵式的组件声明方式
-import { defineProps } from "vue";
-// 子组件使用父组件传过来的props 先声明才能用 为了安全
-defineProps([
-  "icon",
-  "theme",
-  "size",
-  "spin",
-  "fill",
-  "strokeLinecap",
-  "strokeLinejoin",
-  "strokeWidth",
-]);
+
+<script lang="ts" setup>
+// vue 组件的一种声明方式，本来是有各种图标， Component + is = icon
+import type { Icon } from '@icon-park/vue-next/lib/runtime'
+// import { defineProps } from 'vue'
+// 让子组件使用父组件传过来的 props，先声明才能用，为了安全
+defineProps<{
+	icon: Icon
+	theme?: 'outline' | 'filled' | 'two-tone' | 'multi-color'
+	size?: number | string
+	spin?: boolean
+	fill?: string | string[]
+	strokeLinecap?: 'butt' | 'round' | 'square'
+	strokeLinejoin?: 'miter' | 'round' | 'bevel'
+	strokeWidth?: number
+}>()
 </script>
