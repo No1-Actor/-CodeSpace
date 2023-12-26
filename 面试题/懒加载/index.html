@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img-item{
+            display: block;
+            height: 300px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <img class='img-item' src='' data-original="https://img0.baidu.com/it/u=1049144354,3589714554&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800" alt="">
+    <img class='img-item' src='' data-original="https://img0.baidu.com/it/u=563904319,1035858483&fm=253&fmt=auto&app=138&f=JPEG?w=563&h=500" alt="">
+    <img class='img-item' src='' data-original="https://img1.baidu.com/it/u=2572971968,577099017&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt="">
+    <img class='img-item' src='' data-original="https://img2.baidu.com/it/u=3778441602,3490583700&fm=253&fmt=auto&app=138&f=JPEG?w=838&h=500" alt="">
+    <img class='img-item' src='' data-original="https://img0.baidu.com/it/u=3720408928,2256315560&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800" alt="">
+    <img class='img-item' src='' data-original="https://img2.baidu.com/it/u=1529586464,3619073638&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500" alt="">
+    <img class='img-item' src='' data-original="https://img2.baidu.com/it/u=3915486862,4108282974&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800" alt="">
+    <img class='img-item' src='' data-original="https://img0.baidu.com/it/u=3612477159,183825383&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800" alt="">
+    <img class='img-item' src='' data-original="https://img0.baidu.com/it/u=3105562924,1381923968&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500" alt="">
+    
+    <script>
+        // 判断图片有没有进入可视区域，有的话就将其data-original的值赋给src
+        let viewHeight = window.innerHeight
+
+        function lazyLoad(){
+            let imgs = document.querySelectorAll('img[data-original]')
+            imgs.forEach(el => {
+                let rect = el.getBoundingClientRect() // getBoundingClientRect获取元素相对于视口的位置         
+                if(rect.top < viewHeight) {
+                    let image = new Image()
+                    image.src = el.dataset.original // 将data-original的值赋给src
+                    image.onload = function(){ 
+                        el.src = image.src 
+                    }
+                    el.removeAttribute('data-original') // 移除data-original属性
+                }
+            });
+        }
+
+        lazyLoad()
+        document.addEventListener('scroll', lazyLoad)
+    </script>
+</body>
+</html>

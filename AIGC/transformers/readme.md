@@ -4,10 +4,10 @@ huggingface LLM 社区
     transformers来自抱抱脸
 
 - transformers的用法
-    -pipeline(task)
+    -`pipeline`(task)
         分发一个nip任务
-    -model
-    -tokenizer...
+    -`model`
+    -`tokenizer`...
 
 - transformers和openai
     - transformer是Hugging Face LLM社区 sdk

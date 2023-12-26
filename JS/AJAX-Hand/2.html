@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let template = "我是{{name}},年龄{{age}},性别{{sex}}"
+    let person = {
+        name: 'pluto',
+        age: 10,
+        sex: '男',
+    }
+    console.log(render(template, person) );
+    function render(template, data) { // 变量提升，预编译
+        //  \ 表示转义    {} 表示长度   \d 表示数字    \w 表示字符   \w+ 表示一个或多个   (\w) 表示分组
+        const reg = /\{\{(\w+)\}\}/ // 在文本中找到 {{ }} 这样的模式
+        console.log(Object.prototype.toString.call(reg)); // [object RegExp]
+        if (reg.test(template)) {  // test() 方法用于检测一个字符串是否匹配某个模式.
+            console.log('有的', reg.exec(template));
+            const name = reg.exec(template)[1]  // exec() 方法用于检索字符串中的正则表达式的匹配.
+            console.log(name);
+            template = template.replace(reg, data[name])
+            // console.log(template);
+            return render(template, data) // 递归调用
+        }
+        return template
+    }
+</script>
+</body>
+</html>
