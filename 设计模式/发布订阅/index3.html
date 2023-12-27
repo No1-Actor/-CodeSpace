@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        let myEvent = new CustomEvent('run', {
+            detail: {
+                name: 'running',
+            }
+        })
+        window.addEventListener('run', (e) => {
+            console.log(e.detail.name);
+        })
+        window.dispatchEvent(myEvent) // dispatchEvent 用于触发事件
+    </script>
+</body>
+</html>

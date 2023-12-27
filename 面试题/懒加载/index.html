@@ -25,8 +25,8 @@
     
     <script>
         // 判断图片有没有进入可视区域，有的话就将其data-original的值赋给src
-        let viewHeight = window.innerHeight
-
+        let viewHeight = window.innerHeight // innerHeight window独有的属性，获取视口的高度, 但不包括浏览器的边框
+        // offsetHeight 是用于获取元素在页面布局中所占用的整体高度，如果有滚动条，也会包括滚动条的高度。
         function lazyLoad(){
             let imgs = document.querySelectorAll('img[data-original]')
             imgs.forEach(el => {
