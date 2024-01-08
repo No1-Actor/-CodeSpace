@@ -5,7 +5,7 @@ import 'amfe-flexible' // 自动设置根字体大小
 import './assets/style/reset.css'
 import { Button } from 'vant';
 import 'vant/lib/index.css';
-import { Form, Field, CellGroup } from 'vant';
+import { Form, Field, CellGroup, Icon } from 'vant';
 
 const app = createApp(App);
 
@@ -14,4 +14,5 @@ app.use(Button)
 app.use(Form);
 app.use(Field);
 app.use(CellGroup);
+app.use(Icon);
 app.mount('#app')

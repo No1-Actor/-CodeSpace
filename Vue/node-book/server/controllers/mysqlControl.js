@@ -36,10 +36,24 @@ const allService = {
 
 // 登录功能
 const userLogin = (username, password) => {
-    let _sql = `select * from users where username = "${username}" and password = "${password}";` // mysql的查询语句
+    let _sql = `select * from users where username="${username}" and password="${password}";` // mysql的查询语句
     return allService.query(_sql) // 返回查询结果
 }
 
-module.exports = {
-    userLogin
+// 查询
+const userFind = (username) => {
+    let _sql = `select * from users where username="${username}";` // mysql的查询语句
+    return allService.query(_sql) // 返回查询结果
+}
+
+// 注册校验功能
+const userRegister = (values) => {
+    let _sql = `insert into users set username=?,password=?,nickname=?;` // mysql的查询语句
+    return allService.query(_sql, values) // 返回查询结果
+}
+
+module.exports = { // 抛出接口
+    userLogin,
+    userFind,
+    userRegister,
 }

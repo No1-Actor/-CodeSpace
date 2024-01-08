@@ -2,6 +2,11 @@ import { createRouter, createWebHistory }from 'vue-router'
 
 const routes = [
     {
+        path: '/',
+        name: 'home',
+        component: () => import('../views/login.vue'),
+    },
+    {
         path: '/login',
         name: 'login',
         component: () => import('../views/login.vue'),
@@ -23,6 +28,14 @@ const routes = [
         component: () => import('../views/noteClass.vue'),
         meta: {
             title: '笔记分类'
+        }
+    },
+    {
+        path: '/noteList',
+        name: 'noteList',
+        component: () => import('../views/noteList.vue'),
+        meta: {
+            title: '笔记列表'
         }
     },
 ]
