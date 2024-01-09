@@ -52,7 +52,6 @@
   import axios from '../api'
   import { showSuccessToast, showFailToast } from 'vant';
 
-
   const router = useRouter(); // 创建一个路由实例
   
   const state = reactive({ // reactive负责将对象变成响应式数据
@@ -60,13 +59,10 @@
     password: '',
     nickname: '',
   })
-  // const username = ref(''); // ref负责把原始数据变成响应式数据
-  // const password = ref('');
   
   const onSubmit = async() => {
       // 发送请求，将state.username, state.password传给后端
-  
-      console.log(state.username, state.password, state.nickname);
+      // console.log(state.username, state.password, state.nickname);
       const data = await axios.post('/register', {
         username: state.username,
         password: state.password,
@@ -78,6 +74,7 @@
       }, 2000);
     };
   
+  // 跳转到登录页面
   const login = () => {
       router.push('/Login');
   }

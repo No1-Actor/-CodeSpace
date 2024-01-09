@@ -38,6 +38,22 @@ const routes = [
             title: '笔记列表'
         }
     },
+    {
+        path: '/noteDetail',
+        name: 'noteDetail',
+        component: () => import('../views/noteDetail.vue'),
+        meta: {
+            title: '笔记详情'
+        }
+    },
+    {
+        path: '/notepublish',
+        name: 'notepublish',
+        component: () => import('../views/notepublish.vue'),
+        meta: {
+            title: '笔记发布'
+        }
+    },
 ]
 
 const router = createRouter({

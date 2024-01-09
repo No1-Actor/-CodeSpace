@@ -36,7 +36,7 @@ const router = useRouter() // 引入路由
 const quit =() => {
     router.push({ path: '/login' })
 }
-// 发布订阅(子向父传值)
+// 子向父传值(NoteClass.vue)
 const emit = defineEmits(['hidden']) 
 const hideMenu = () => {
     emit('hidden', false)

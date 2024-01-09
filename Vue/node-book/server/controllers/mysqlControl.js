@@ -52,8 +52,29 @@ const userRegister = (values) => {
     return allService.query(_sql, values) // 返回查询结果
 }
 
+// 根据类型查找笔记列表
+const findNoteListByType = (note_type) => {
+    let _sql = `select * from note where note_type="${note_type}";` // mysql的查询语句
+    return allService.query(_sql) // 返回查询结果
+}
+
+// 根据id查找笔记详情
+const findNoteDetailById = (id) => {
+    let _sql = `select * from note where id="${id}";` // mysql的查询语句
+    return allService.query(_sql) // 返回查询结果
+}
+
+// 发布笔记
+const notePublish = (values) => {
+    let _sql = `insert into note set note_type=?,head_img=?,note_content=?,title=?,nickname=?,userId=?,c_time=?,m_time=?;` // mysql的查询语句
+    return allService.query(_sql, values) // 返回查询结果
+}
+
 module.exports = { // 抛出接口
     userLogin,
     userFind,
     userRegister,
+    findNoteListByType,
+    findNoteDetailById,
+    notePublish,
 }

@@ -6,6 +6,8 @@ import './assets/style/reset.css'
 import { Button } from 'vant';
 import 'vant/lib/index.css';
 import { Form, Field, CellGroup, Icon } from 'vant';
+import { Uploader } from 'vant';
+import { ActionSheet } from 'vant';
 
 const app = createApp(App);
 
@@ -15,4 +17,6 @@ app.use(Form);
 app.use(Field);
 app.use(CellGroup);
 app.use(Icon);
+app.use(Uploader);
+app.use(ActionSheet);
 app.mount('#app')

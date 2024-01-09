@@ -53,10 +53,8 @@ const state = reactive({ // reactive负责将对象变成响应式数据
 // const username = ref(''); // ref负责把原始数据变成响应式数据
 // const password = ref('');
 
-const onSubmit =  async() => {
+const onSubmit = async() => {
     // 发送请求，将state.username, state.password传给后端
-    
-    // console.log(state.username, state.password);
     const res = await axios.post('/login', {      // 向后端发送请求
         username: state.username,
         password: state.password,
@@ -64,10 +62,10 @@ const onSubmit =  async() => {
     console.log(res);
     // 保存用户信息
     sessionStorage.setItem('userInfo', JSON.stringify(res.data)); // 保存用户信息到 会话存储空间
-
-    router.push('/noteClass'); // 登录成功后跳转到首页
+    router.push('/noteClass'); // 登录成功后跳转到noteClass
 };
 
+// 跳转到注册界面
 const register = () => {
     router.push('/register');
 }

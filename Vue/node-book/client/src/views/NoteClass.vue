@@ -7,7 +7,7 @@
                     <van-icon name="wap-nav" @click="() => state.isShowMenu = true"/>
                 </div>
                 <div>
-                    <van-icon name="edit" />
+                    <van-icon name="edit" @click="goPublish"/>
                     <van-icon name="like-o" />
                     <van-icon name="search" />
                 </div>
@@ -66,7 +66,7 @@ const noteClassList = [
 const state = reactive({
     isShowMenu: false
 })
-// 子向父传值
+// 子向父传值(Menu.vue)
 const hideMenu = (e) => {
     state.isShowMenu = e
 }
@@ -76,6 +76,10 @@ const goNoteList = (title) => {
         path: '/noteList',
         query: {title} // 传递参数
     })
+}
+// 跳转到发布笔记
+const goPublish = () => {
+  router.push('/notePublish')
 }
 </script>
 
