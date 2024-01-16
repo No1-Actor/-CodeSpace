@@ -1,99 +1,53 @@
 <template>
-    <div class="login-wrap">
-        <div class="ms-login">
-            <div class="ms-title">后台管理系统</div>
-            <!-- v-model 双向绑定 性能不好 表单的目的是收集数据 -->
-            <el-form 
-                :model="param" 
-                :rules="rules" 
-                ref="login"
-                autofocus
-                label-width="0px"
-                class="ms-content"
-            >
-                <el-form-item prop="username">
-                    <el-input
-                        autofocus
-                        placeholder="请输入用户名"
-                        v-model="param.username" />
-                </el-form-item>
-                <el-form-item prop="password">
-                    <el-input
-                        type="password"
-                        placeholder="请输入密码"
-                        @keyup.enter="submitForm(login)"
-                        v-model="param.password" />
-                </el-form-item>
-                <div class="login-btn">
-                    <el-button type="primary" 
-                    @click="submitForm(login)">登录</el-button>
+    <div class="header">
+        <div class="logo">后台管理系统</div>
+        <div class="header-right">
+            <div class="header-user-icon">
+                <div class="btn-bell">
+
                 </div>
-            </el-form>
+                <el-avatar 
+                class="user-avatar"
+                :size="30"
+                :src="imgurl"
+                >
+                </el-avatar>
+                <el-dropdown 
+                    class="user-name" 
+                    trigger="click"
+                    @command="handleCommand"
+                >
+                    <span class="el-dropdown-link">
+                        {{username}}
+                        <el-icon class="el-icon--right">
+                            <arrow-down />
+                        </el-icon>
+                    </span>
+                    <!-- 插槽 slot -->
+                    <template #dropdown>
+                        <el-dropdown-menu>
+                            <a 
+                            href="https://github.com/lin-xin/vue-manage-system"
+                             target="_blank">
+                                <el-dropdown-item>项目仓库</el-dropdown-item>
+                            </a>
+                            <el-dropdown-item command="user">个人中心</el-dropdown-item>
+                            <el-dropdown-item divided command="loginout">退出登录</el-dropdown-item>
+                        </el-dropdown-menu>
+                    </template>
+                </el-dropdown>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, onMounted } from 'vue'
-import { ElMessage } from 'element-plus'
-import { usePermissStore } from '../store/permiss'
-import { useRouter } from 'vue-router'
-import type { FormInstance } from 'element-plus'
 
-const permiss = usePermissStore();
-const router = useRouter();
-interface LoginInfo{
-    username: string;
-    password: string;
-}
-// 和ref 区别  复杂reactive 
-// proxy 
-// 标注一个dom 
-const login = ref();
-console.log(login.value);
-onMounted(() => {
-    console.log(login.value);
-})
-const param = reactive<LoginInfo>({
-    username: '',
-    password: ''
-})
-const rules = {
-    username: [
-        {
-            required: true,
-            message: '请输入用户名',
-            trigger: 'blur'
-        }
-    ],
-    password: [
-        {
-            required: true,
-            message: '请输入密码',
-            trigger: 'blur'
-        }
-    ]
-}
-// submit event  elementplus  formEl 
-const submitForm = (formEl :FormInstance | undefined) => {
-    if (!formEl) {
-        return;
-    }
-    formEl.validate(valid => {
-        if (valid) {
-            ElMessage.error('登录成功')
-            localStorage.setItem('ms_username', param.username);
-            const keys = permiss
-                .roleList[param.username == 'admin'?'admin':'user'];
-            localStorage.setItem('ms_keys', JSON.stringify(keys))  
-            router.push('/')
-        } else {
-            ElMessage.error('请校验表单')
-        }
-    })
-}
+import imgurl from '../assets/img/img.jpg';
+const username = localStorage.getItem('ms_username');
+const handleCommand = () => {
 
-
+}
 </script>
 
 <style scoped>
