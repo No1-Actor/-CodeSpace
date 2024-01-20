@@ -1,0 +1,1 @@
+<view class="song"><image src="{{a}}" mode=""></image><view class="desc"> 标题 </view><view class="flex-box"><view class="price">$100</view><view class="market-price">$200</view></view></view>
