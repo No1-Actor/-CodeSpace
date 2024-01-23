@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // ? 查询字符串 query string -> 后台的
+      // js  parse url 得到params url 中的参数
+      // {user: '阿飞', age: 17}
+
+      //   第一种
+      //   function getParams(url) {
+      //     const res = {};
+      //     // if (url.indexOf('?') != -1)
+      //     if (url.includes("?")) { // includes 判断字符串中是否包含某个字符
+      //       const str = url.split("?")[1]; // user=%E9%98%BF%E9%A3%9E&age=16
+      //       // console.log(str)
+      //       const arr = str.split("&"); // ["user=%E9%98%BF%E9%A3%9E", "age=16"]
+      //       arr.forEach((item) => {
+      //         const [key, val] = item.split("="); // ["user", "%E9%98%BF%E9%A3%9E"
+      //         res[key] = decodeURIComponent(val); // decodeURIComponent 解码
+      //       });
+      //     }
+      //     return res;
+      //   }
+
+      //   const user = getParams(
+      //     "http://www.baidu.com?user=%E9%98%BF%E9%A3%9E&age=16"
+      //   );
+      //   console.log(user);
+
+      // 第二种
+      const urlSearchParams = new URLSearchParams(
+        "?name=%E9%98%BF%E9%A3%9E&age=16"
+      );
+      console.log(urlSearchParams.entries());
+      console.log(urlSearchParams.entries().next());
+      const params = Object.fromEntries(urlSearchParams.entries()); // entries 返回一个迭代器
+      console.log(params);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            list-style: none; /* 去掉列表标签前面小圆点 */
+            width: 200px;
+            height: 100px;
+            float: left;
+        }
+        li:nth-child(1){
+            background-color: red;
+        }
+        li:nth-child(2){
+            background-color: yellow;
+        }
+        li:nth-child(3){
+            background-color: blue;
+        }
+        .text{
+            width: 100px;
+            height: 150px;
+            background: rgb(61, 152, 180);
+            /* clear: both; 清除元素周围的浮动元素 */
+        }
+        /* .clear{
+            clear: left; clear:left 清理掉左浮动效果 
+        } */
+        /* ul{
+            height: 100px; 给父容器添加行高
+        } */
+        /* .clear::after{
+            content: '';
+            clear: both; 
+            display: block;在clear后面用伪元素添加清除浮动效果
+        } */
+        ul{
+            overflow: auto;/* 超出则自适应 */
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="clear">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <!-- <div class="clear"></div> -->
+        </ul>
+
+        <div class="text">hello world</div>
+    </div>
+</body>
+</html>

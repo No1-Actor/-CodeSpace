@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "JavaScript you don't know",
+      "author": "君豪"
+    },
+    {
+      "id": 2,
+      "title": "JavaScript高级程序设计",
+      "author": "进哥哥"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "学习了",
+      "postId": 1
+    },
+    {
+      "title": "你不知道的JavaScript",
+      "author": "hk",
+      "postId": "1",
+      "id": 3
+    }
+  ]
+}

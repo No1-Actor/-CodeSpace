@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="box"></ul>
+
+    <script>
+      // 第一种方法
+      // const ul = document.getElementById('box');
+      // ul.style.display = 'none'
+      // for(let i = 0; i < 100; i++) {
+      //     let li = document.createElement('li');
+      //     let text = document.createTextNode(i); // 创建文本节点
+      //      li.appendChild(text); // 将文本节点添加到li元素中
+      //      ul.appendChild(li); // 将li元素添加到ul元素中
+      // }
+      //  ul.style.display = 'block'
+
+      // 第二种方法
+    //   const ul = document.getElementById("box");
+    //   const fragment = document.createDocumentFragment(); // 创建虚拟文档片段
+    //   for (let i = 0; i < 100; i++) {
+    //     let li = document.createElement("li");
+    //     let text = document.createTextNode(i);
+    //     li.appendChild(text);
+    //     fragment.appendChild(li);
+    //   }
+    //   ul.appendChild(fragment);
+
+      // 第三种方法
+      const ul = document.getElementById("box");  
+      const clone = ul.cloneNode(true); // 克隆ul元素
+      for (let i = 0; i < 100; i++) {
+        let li = document.createElement("li");
+        let text = document.createTextNode(i); // 创建文本节点
+        li.appendChild(text); // 将文本节点添加到li元素中
+        clone.appendChild(li); // 将li元素添加到克隆的ul元素中
+      }
+      ul.parentNode.replaceChild(clone, ul); // 将克隆的ul元素替换原来的ul元素
+    </script>
+  </body>
+</html>

@@ -28,7 +28,7 @@ import { computed, ref } from 'vue';
 import { useStore} from 'vuex'
 
 const store = useStore()
-console.log(store);
+// console.log(store);
 
 const isShow =computed(() => {
 	return store.state.isShowMenu
@@ -43,7 +43,7 @@ const hideMenu = () => {
 <style lang="scss" scoped>
 .menu-left {
 	position: fixed;
-	top: 0;
+	top: 80rpx;
 	z-index: 9999;
 	width: 620rpx;
 	height: 100%;

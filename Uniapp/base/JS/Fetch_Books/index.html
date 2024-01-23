@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <!-- 语义化标签 SEO 网络爬虫-->
+    <table class="table table-striped">
+        <caption>文章表</caption>
+        <!-- 表头 -->
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>标题</th>
+                <th>作者</th>
+            </tr>
+        </thead>
+        <!-- 表体 -->
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<form name="postForm">
+    <div class="form-group">
+        <label for="titleInput">标题</label>
+        <input type="text" class="form-control" id="titleInput" placeholder="请输入标题">
+    </div>
+    <div class="form-group">
+        <label for="titleInput">作者</label>
+        <input type="text" class="form-control" id="authorInput" placeholder="请输入标题">
+    </div>
+    <button class="btn btn-primary" type="submit">添加</button>
+</form>
+
+<script>
+fetch('http://localhost:3000/posts')
+    .then(res => res.json())
+    .then(data => {
+        document.querySelector('.table tbody').innerHTML =
+            data
+                .map(post => `
+                    <tr>
+                        <td>${post.id}</td>
+                        <td>${post.title}</td>
+                        <td>${post.author}</td>
+                    </tr>
+                `)
+                .join('')
+    })
+
+    const oForm = document.forms['postForm'] // 获取表单
+    oForm.addEventListener('submit', function(event) {
+        event.preventDefault() // 阻止表单默认提交
+        const newPost = {
+            "title": oForm.querySelector('#titleInput').value, // 获取标题
+            "author": oForm.querySelector('#authorInput').value // 获取作者
+        }
+        // console.log(newPost);
+        fetch('http://localhost:3000/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newPost),
+        }).then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+    })
+</script>
+</body>
+</html>

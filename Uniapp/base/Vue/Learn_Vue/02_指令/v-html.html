@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <div>{{msg}}</div>
+        <!-- v-text 会覆盖掉原有的内容 -->
+        <div v-text="msg"></div> 
+        <!-- v-html 会将字符串转换为html标签 -->
+        <div v-html="info"></div> 
+    </template>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template:'#my-app',
+            data() {
+                return {
+                    msg: 'hello world',
+                    info: '<h1>这是一个父文本</h1>'
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

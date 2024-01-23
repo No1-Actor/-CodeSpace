@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">新歌速递</button>
+    <ul>
+        <li>test</li>
+    </ul>
+
+    <script>
+        const btn = document.getElementById('btn');
+        btn.addEventListener('click', () =>{
+            // 原生方法
+            let xhr = new XMLHttpRequest(); // 创建内置的浏览器对象
+            xhr.open('GET', 'http://192.168.31.45:3000/top/song?type=7', true); // 配置
+            xhr.onreadystatechange = () => {  // 监听响应 
+                if(xhr.readyState === 4 && xhr.status === 200) { //readState 4 代表请求完成， status 200 代表请求成功
+                    let result = JSON.parse(xhr.responseText);
+                    console.log(result);
+
+                    result.data.forEach(song => {  // 遍历歌曲
+                        let li = document.createElement('li');
+                        li.innerHTML = song.name;
+                        document.body.appendChild(li);
+                    });
+                }
+            }
+            xhr.send(); // 发送请求
+        })
+    </script>
+</body>
+</html>

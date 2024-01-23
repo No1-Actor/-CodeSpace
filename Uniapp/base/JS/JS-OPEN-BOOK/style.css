@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    /* vertical-align 对齐方式：基准线对齐 */
+    vertical-align: baseline;
+    /* box-sizing 将容器声明成IE模型 */
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    font: 100%/1.25 Helvetica, arial, sans-serif;
+    perspective: 1000px;  /*指定了观察者与z平面的距离*/
+    background-color: #444;
+    background-image: linear-gradient(to bottom, #444, #999); /*渐变设置*/ 
+}
+
+.p3d{
+    transform-style: preserve-3d;
+}
+
+.book{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* transform: translateY(-150px) ; y轴平移 */
+    margin-top: -150px;
+    color: #fff;
+    -webkit-transform: rotateX(60deg); /*老版本谷歌浏览器兼容*/
+    user-select: none; /*用户选择*/
+}
+
+.front-cover{
+    cursor: move; /*修改鼠标状态*/
+    transform-origin: 0 50%; /*旋转基点*/
+    transform: rotateY(0deg);
+}
+
+.page{
+    width: 300px;
+    height: 300px;
+    padding: 1em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-indent: 2em;
+}
+
+.inside{
+    background-color: #d93e2b;
+}
+
+.outside{
+    background: #fff;
+}
+
+.front-cover .outside{
+    background-image: url('https://photo.16pic.com/00/53/63/16pic_5363878_b.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translateZ(3px);
+}
+
+.flip{
+    transform: rotateY(180deg);
+}
+
+.back-cover .outside{
+    transform: translateZ(-3px);
+}
+
+.back-cover .inside{
+    background-color: #d93e2b;
+}
+
+.card,
+.shadow{
+    width: 196px;
+    height: 132px;
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    transform-origin: 0 100%;
+}
+
+.shadow{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card{
+    background: url('(https://foruda.gitee.com/avatar/1677018300688056396/3045275_snail_wn_1620711440.png!avatar200') no-repeat;
+    background-size: cover;
+}

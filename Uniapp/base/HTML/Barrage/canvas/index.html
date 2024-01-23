@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+
+    <script>
+        let canvas = document.getElementById('canvas')
+
+        let ctx = canvas.getContext('2d') // 创建一个2d画布
+
+        // ctx.fillStyle = 'green' // 用于设置绘图的填充颜色或样式。
+        // ctx.fillRect(10, 10, 55, 50) // 用于在画布上绘制矩形方法
+
+        // ctx.fillRect(10, 10, 100, 50)
+        // ctx.strokeRect(10, 70, 100, 50) // 用于在画布上绘制矩形的边框线
+
+        // ctx.beginPath() // 用于开始绘制一个新的路径
+        // ctx.moveTo(50, 50) // 用于将绘图路径的起始点移动到指定的坐标位置
+        // ctx.lineTo(200, 50) // 用于绘制一条直线，连接当前路径的当前点与指定点
+        // ctx.lineTo(200, 100)
+        // ctx.closePath()   // 用于将当前路径的起始点和当前点连接起来
+        
+        // ctx.stroke()    // 用于绘制当前路径的描边效果 
+        // ctx.fill()   // 用于填充当前路径的内部区域
+
+        // ctx.beginPath()
+        // ctx.arc(50, 50, 40, 0, Math.PI / 2)  // 用于在画布上绘制圆弧或部分圆
+        // ctx.stroke()
+
+        ctx.font = '30px sans-serif'
+        ctx.fillText('今天你写文章了吗?', 10, 100) // 于在画布上绘制文本，并填充文本的内部以显示文字内容
+        ctx.strokeText('我要写三篇', 10, 200)   // 用于在画布上绘制文本并描绘文本的轮廓线条，而不是填充文本的内部
+
+        console.log(canvas);
+    </script>
+</body>
+</html>

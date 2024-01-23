@@ -1,0 +1,21 @@
+<script>
+    // 用发布订阅模式实现先请求A再请求B
+    let finish = new Event('finish', { detail : { name : 'finish' } } )
+
+    function fnA() {
+        setTimeout(() => {
+            console.log('请求A完成');
+            window.dispatchEvent(finish) // dispatchEvent 用于触发事件
+        }, 1000)
+    }
+    function fnB() {
+        setTimeout(() => {
+            console.log('请求B完成');
+        }, 500)
+    }
+
+    fnA()
+    window.addEventListener('finish', () => {
+        fnB()
+    })
+</script>

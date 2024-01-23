@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app{
+            width: 400px;
+            height: 400px;
+            background-color: aqua;
+        }
+        #wrap{
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="wrap">
+            <div id="box"></div>
+        </div>
+    </div>
+</body>
+<script>
+    let app = document.getElementById('app');
+    let wrap = document.getElementById('wrap');
+    let box = document.getElementById('box');
+
+    // app.addEventListener('click',(e) => {  
+    //     console.log('app');
+    //     // e.stopPropagation() // 阻止事件冒泡到父元素，阻止任何父事件处理程序被执行。
+    //     // e.stopImmediatePropagation() // 阻止事件冒泡到父元素，阻止任何父事件处理程序被执行。阻止当前元素的其他事件处理程序被执行。
+    // },true) // true 代表捕获阶段
+
+    // wrap.addEventListener('click',() => {
+    //     console.log('wrap');
+    // },true)
+    box.addEventListener('click',(e) => {
+        // 阻止冒泡
+        // e.stopPropagation(); 
+        console.log('box');
+        e.stopImmediatePropagation()
+        box.addEventListener('mouseenter',(e) => {
+            console.log('box1');
+        })
+    },)
+</script>
+</html>
