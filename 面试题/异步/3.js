@@ -13,4 +13,12 @@ function b(){
     },500)
 }
 
-a().then(b)
+a()
+.then((res)=>{
+    console.log(res);
+    return b()
+})
+
+.then((res)=>{
+    console.log(res);
+})
