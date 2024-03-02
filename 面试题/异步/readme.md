@@ -24,3 +24,7 @@
    2. 可以控制每个阶段的返回值
    3. 可以知道是否执行完毕
    4. 可以借助Thunk 和 co 模块处理异步，但是写法复杂，所以generator函数的意义其实是为了打造async await
+4. async/await
+   1. es6提供的一种新的处理异步代码的方案
+   2. 没有错误捕获机制
+   3. async/await 是由promise + generator 来实现的，本质是通过generator 的基础上通过递归的方式来自动执行一个又一个的next函数，当done为true是结束递归

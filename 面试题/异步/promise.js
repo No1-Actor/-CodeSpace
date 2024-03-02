@@ -92,5 +92,24 @@ class MyPromise {
         })
     }
 
+    // all源码
+    static all (promises){
+        return new MyPromise((resolve, reject) => {
+            // resolve() || reject()
+            for (let promise of promises){
+                promise.then(
+                    (value) => {
+                        count++
+                        if(count === promises.length){
+                            resolve(value)
+                        }
+                    },
+                    (reason) => {
+                        reject(reason)
+                    }
+                )
+            }
+        })
+    }
 }
 
