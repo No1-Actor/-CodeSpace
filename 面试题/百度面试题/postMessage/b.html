@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <iframe src="./a.html" frameborder="0" id="iframe"></iframe>
+    
+    <h4>b.html</h4>
+
+    <script>
+        let iframe = document.getElementById('iframe')
+        iframe.onload = function(){
+            let data = {
+                name: 'tom'
+            }
+            iframe.contentWindow.postMessage(JSON.stringify(data), 'http://127.0.0.1:5500')
+        }
+    </script>
+</body>
+</html>

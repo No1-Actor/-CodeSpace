@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">获取数据</button>
+
+    <!-- <script src="http://localhost:3000?cb='callback"></script> -->
+
+    <script>
+        function jsonp(url, cb){
+            return new Promise((resolve, reject) => { 
+                // 原理
+                const script = document.createElement('script') // 创建script标签
+                script.src = `${url}?cb=${cb}`;
+                document.body.appendChild(script) // 浏览器会自动请求src里面的内容,相当于执行了11行代码
+
+                window[cb] = (data) => {
+                    resolve(data)
+                }
+            })
+        }
+
+        let btn = document.getElementById('btn')
+        btn.addEventListener('click', () => {
+            // 发送请求
+            // fetch('http://localhost:3000')
+            jsonp('http://localhost:3000', 'callback')
+            .then(res => {
+                console.log('后端返回结果' + res);
+            })
+        })
+    </script>
+</body>
+</html>
