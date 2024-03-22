@@ -3,9 +3,10 @@ const app = new koa()
 const bodyParser = require('koa-bodyparser')  // 让koa能解析post请求
 const cors = require('koa2-cors')  // 解决跨域问题
 
+
 const user = require('./routes/user.js') // 引入路由
 const note = require('./routes/note.js') // 引入路由
-
+console.log('dddddd')
 app.use(cors())  // 告诉浏览器允许跨域，解决跨域问题
 app.use(bodyParser())  // 解析post请求
 

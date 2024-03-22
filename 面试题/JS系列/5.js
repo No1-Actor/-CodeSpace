@@ -1,7 +1,6 @@
 // let a = 1
 // let b = a
 // a = 2
-
 // console.log(a) // 2
 
 
@@ -12,13 +11,19 @@
 // a.age = 20
 // console.log(b);
 
+
 // let a = {
-//     age: 18
+//     age: 18,
+//     like: [1, 2]
 // }
 // let b = Object.assign({}, a)
-
+// a.like.push(3)
 // console.log(b);
 
+// let a = [1, 2, {n: 3}]
+// let b = [...a]
+// a[2].n = 30
+// console.log(b);
 
 // let a = {
 //     a:1,
@@ -30,11 +35,13 @@
 //     },
 // }
 
+// let b = JSON.parse(JSON.stringify(a))
 // let b = structuredClone(a)
+// console.log(b);
 
 
-function a(){
-    console.log('hello');
+let fn = function(){
+    console.log(hello);
 }
 
 function copy(fn){

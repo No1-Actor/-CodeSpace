@@ -37,7 +37,7 @@
 import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import { reactive } from 'vue';
-import axios from '../api'
+import axios from '../assets/api'
 import { showSuccessToast } from 'vant'
 import { useRouter } from 'vue-router';
 

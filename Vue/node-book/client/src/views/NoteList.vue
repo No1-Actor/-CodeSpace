@@ -24,7 +24,7 @@
 // 页面加载中发请求，拿到当前的分类数据
 import { onBeforeMount, onMounted, onUnmounted, ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import axios from "../api";
+import axios from "../assets/api";
 
 const router = useRouter(); // 路由实例
 const route = useRoute(); // 获取路由详情参数

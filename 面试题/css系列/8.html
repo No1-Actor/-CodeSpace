@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap{
+            display:flex;
+            height: 200px;
+            grid-template-columns: 200px 1fr;
+        }
+        .left{
+            width: 200px;
+            height: 100%;
+            background-color: aqua;
+        }
+        .right{
+            flex: 1;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+</body>
+</html>

@@ -49,7 +49,7 @@
   <script setup>
   import { reactive, ref } from 'vue';  
   import { useRouter } from 'vue-router';
-  import axios from '../api'
+  import axios from '../assets/api'
   import { showSuccessToast, showFailToast } from 'vant';
 
   const router = useRouter(); // 创建一个路由实例

@@ -18,7 +18,7 @@
 <script setup>
 import{ onMounted, ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import axios from "../api";
+import axios from "../assets/api";
 
 const noteDetail = ref("")
 const route = useRoute(); // 获取路由详情参数

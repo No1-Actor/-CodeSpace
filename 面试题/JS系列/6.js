@@ -7,12 +7,12 @@ function foo(){
     //     console.log(a,b);
 
     // 清除闭包
-    // a= null
-    // b =null
+    // a = null
+    // b = null
     
     // }
     // 不仅return可以返回，global,window也可以
-    global.bar = function(){
+    return function(){
         console.log(a,b);
     }
 }
